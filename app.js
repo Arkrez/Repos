@@ -1,4 +1,3 @@
-const redo = document.querySelector(".redo");
 let isPlayerTurn = true;
 let isWinner = false;
 function sleep(ms) {
@@ -11,11 +10,11 @@ const BoardModule = (function(){
     BoardController = {};
     //Creating an array of all of the tile divs
     const tiles = document.querySelectorAll(".tile");
+    const redo = document.querySelector(".redo");
     //The dsBoard will hold the state of each tile ex empty, X, O, Highlighted
     BoardController.dsBoard = [];
     //the options will hold all of the options that the computer is allowed to select
     BoardController.options = [];
-
     //Creates the board data struture and adds an object in each cell (9x9)
     BoardController.createBoard = (function(){
         for(let i = 0; i < 3; i++)
@@ -103,6 +102,7 @@ const BoardModule = (function(){
     //Creating the initial board and returning the contorller
     return BoardController;
 })();
+
 //Thus module hods all of the functions for the player and computer moves
 const MoveModule = (function(){
     //creating the controller that will expose all of the modules functions
@@ -147,9 +147,3 @@ const MoveModule = (function(){
     //Exoposing the functions
     return MoveController;
 })();
-
-
-
-
-
-
