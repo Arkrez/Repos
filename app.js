@@ -5,7 +5,7 @@ function sleep(ms) {
 }
 
 //This Module will contain functions for controlling the board
-const BoardModule = (function(){
+const BoardModule = (()=>{
     //Initializing the board obj to return to expose the board controlloer functions
     BoardController = {};
     //Creating an array of all of the tile divs
@@ -56,9 +56,9 @@ const BoardModule = (function(){
         (async () =>{
             await sleep(50);
             tiles[0].div.classList.add("winner");
-            await sleep(200);
+            await sleep(50);
             tiles[1].div.classList.add("winner");
-            await sleep(350);
+            await sleep(50);
             tiles[2].div.classList.add("winner");
         })();
         
@@ -71,22 +71,22 @@ const BoardModule = (function(){
         {
             if(dsBoard[i][0].val == dsBoard[i][1].val && dsBoard[i][1].val ==  dsBoard[i][2].val && dsBoard[i][1].val != -1)
             {
-                Highlight([dsBoard[i][0], dsBoard[i][1],dsBoard[i][2] ])
+                Highlight([dsBoard[i][0], dsBoard[i][1],dsBoard[i][2] ]);
                 return dsBoard[i][0].val;
             }
                 
             if(dsBoard[0][i].val == dsBoard[1][i].val && dsBoard[1][i].val == dsBoard[2][i].val && dsBoard[1][i].val != -1){
-                Highlight([dsBoard[0][i], dsBoard[1][i],dsBoard[2][i] ])
+                Highlight([dsBoard[0][i], dsBoard[1][i],dsBoard[2][i] ]);
                 return dsBoard[0][i].val;
             }
         }
         //checking diagnols
         if(dsBoard[0][0].val == dsBoard[1][1].val && dsBoard[1][1].val == dsBoard[2][2].val && dsBoard[2][2].val != -1){
-            Highlight([dsBoard[0][0], dsBoard[1][1],dsBoard[2][2] ])
+            Highlight([dsBoard[0][0], dsBoard[1][1],dsBoard[2][2] ]);
             return dsBoard[0][0].val;
         }
         if(dsBoard[0][2].val == dsBoard[1][1].val && dsBoard[1][1].val == dsBoard[2][0].val && dsBoard[2][0].val != -1){
-            Highlight([dsBoard[0][2], dsBoard[1][1],dsBoard[2][0] ])
+            Highlight([dsBoard[0][2], dsBoard[1][1],dsBoard[2][0] ]);
             return dsBoard[0][2].val;
         }
         return -1;
@@ -104,7 +104,7 @@ const BoardModule = (function(){
 })();
 
 //Thus module hods all of the functions for the player and computer moves
-const MoveModule = (function(){
+const MoveModule = (()=>{
     //creating the controller that will expose all of the modules functions
     MoveController = {};
     //function that dictates where the computer moves * consults the boardController.options array to determine where it can move

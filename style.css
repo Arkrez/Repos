@@ -34,9 +34,18 @@ body{
     font-size: 3rem;
 }
 .redo{
-    width: 4rem;
-    height: 2rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-large;
+    width: 8rem;
+    height: 3rem;
+    background-color: skyblue;
+    border: solid 0px;
+    border-radius: 5px;
 }
+.redo:hover{
+    background-color: aquamarine;
+}
+.redo:hover,
 .tile:hover{
     transform: scale(1.05);
 }
